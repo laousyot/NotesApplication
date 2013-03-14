@@ -7,9 +7,9 @@
 //
 
 #import "OTLMasterViewController.h"
-
+#import "OTLAddNoteViewController.h"
 #import "OTLDetailViewController.h"
-
+#import "OTLObject.h"
 @interface OTLMasterViewController () {
     NSMutableArray *_objects;
 }
@@ -43,9 +43,8 @@
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self performSegueWithIdentifier:@"AddNote" sender:self];
+    
 }
 
 #pragma mark - Table View
@@ -64,8 +63,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    OTLObject *object = _objects[indexPath.row];
+    cell.textLabel.text = object.titleString;
     return cell;
 }
 
@@ -101,13 +100,52 @@
 }
 */
 
+-(IBAction)foo:(UIStoryboardSegue *)segue
+{
+    //OTLMasterViewController *mainView = segue.destinationViewController;
+    OTLAddNoteViewController *sourceView= segue.sourceViewController;
+    OTLObject *object = [[OTLObject alloc] init];
+    object.titleString = sourceView.titleField.text;
+    object.detail=sourceView.contentField.text;
+    object.date = [NSDate date];
+    
+    //Location setup
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy= kCLLocationAccuracyHundredMeters;
+    self.locationManager.distanceFilter= 1000.0f;
+    [self.locationManager startUpdatingLocation];
+    object.coordinate= _locationManager.location.coordinate;
+    [self.locationManager stopUpdatingLocation];
+    if(![CLLocationManager locationServicesEnabled]){
+        NSString *msg = @"Application cannot obtain location. Please go to Settings> Privacy> Location and enable location for this application";
+        UIAlertView *alert;
+        alert = [[UIAlertView alloc]
+                 initWithTitle:@"Error"
+                 message:msg
+                 delegate:self
+                 cancelButtonTitle:@"OK"
+                 otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    [_objects addObject: object];
+    [self.tableView reloadData];
+    
+    
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        OTLObject *object = _objects[indexPath.row];
+        [[segue destinationViewController] setDetailItem:object.date];
+        OTLDetailViewController *detailView=segue.destinationViewController;
+        detailView.object=object;
+      
     }
+    
 }
 
 @end

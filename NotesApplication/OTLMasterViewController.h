@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface OTLMasterViewController : UITableViewController
-
+#import <CoreLocation/CoreLocation.h>
+@interface OTLMasterViewController : UITableViewController<CLLocationManagerDelegate>
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @end

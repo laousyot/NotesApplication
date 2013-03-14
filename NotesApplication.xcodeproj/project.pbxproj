@@ -24,6 +24,10 @@
 		2C42E84816F2065200C15CED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C42E82016F2065200C15CED /* Foundation.framework */; };
 		2C42E85016F2065200C15CED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C42E84E16F2065200C15CED /* InfoPlist.strings */; };
 		2C42E85316F2065200C15CED /* NotesApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C42E85216F2065200C15CED /* NotesApplicationTests.m */; };
+		2C42E85E16F207C400C15CED /* OTLAddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C42E85D16F207C400C15CED /* OTLAddNoteViewController.m */; };
+		2C42E86116F2084900C15CED /* OTLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C42E86016F2084900C15CED /* OTLObject.m */; };
+		2C42E86316F2086500C15CED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C42E86216F2086500C15CED /* CoreLocation.framework */; };
+		2C42E86516F2086C00C15CED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C42E86416F2086C00C15CED /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,12 @@
 		2C42E84F16F2065200C15CED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C42E85116F2065200C15CED /* NotesApplicationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotesApplicationTests.h; sourceTree = "<group>"; };
 		2C42E85216F2065200C15CED /* NotesApplicationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesApplicationTests.m; sourceTree = "<group>"; };
+		2C42E85C16F207C400C15CED /* OTLAddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTLAddNoteViewController.h; sourceTree = "<group>"; };
+		2C42E85D16F207C400C15CED /* OTLAddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTLAddNoteViewController.m; sourceTree = "<group>"; };
+		2C42E85F16F2084900C15CED /* OTLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTLObject.h; sourceTree = "<group>"; };
+		2C42E86016F2084900C15CED /* OTLObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTLObject.m; sourceTree = "<group>"; };
+		2C42E86216F2086500C15CED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2C42E86416F2086C00C15CED /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C42E86516F2086C00C15CED /* MapKit.framework in Frameworks */,
+				2C42E86316F2086500C15CED /* CoreLocation.framework in Frameworks */,
 				2C42E81F16F2065200C15CED /* UIKit.framework in Frameworks */,
 				2C42E82116F2065200C15CED /* Foundation.framework in Frameworks */,
 				2C42E82316F2065200C15CED /* CoreGraphics.framework in Frameworks */,
@@ -109,6 +121,8 @@
 		2C42E81D16F2065200C15CED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C42E86416F2086C00C15CED /* MapKit.framework */,
+				2C42E86216F2086500C15CED /* CoreLocation.framework */,
 				2C42E81E16F2065200C15CED /* UIKit.framework */,
 				2C42E82016F2065200C15CED /* Foundation.framework */,
 				2C42E82216F2065200C15CED /* CoreGraphics.framework */,
@@ -123,6 +137,10 @@
 				2C42E82D16F2065200C15CED /* OTLAppDelegate.h */,
 				2C42E82E16F2065200C15CED /* OTLAppDelegate.m */,
 				2C42E83616F2065200C15CED /* MainStoryboard.storyboard */,
+				2C42E85C16F207C400C15CED /* OTLAddNoteViewController.h */,
+				2C42E85D16F207C400C15CED /* OTLAddNoteViewController.m */,
+				2C42E85F16F2084900C15CED /* OTLObject.h */,
+				2C42E86016F2084900C15CED /* OTLObject.m */,
 				2C42E83916F2065200C15CED /* OTLMasterViewController.h */,
 				2C42E83A16F2065200C15CED /* OTLMasterViewController.m */,
 				2C42E83C16F2065200C15CED /* OTLDetailViewController.h */,
@@ -280,6 +298,8 @@
 				2C42E82F16F2065200C15CED /* OTLAppDelegate.m in Sources */,
 				2C42E83B16F2065200C15CED /* OTLMasterViewController.m in Sources */,
 				2C42E83E16F2065200C15CED /* OTLDetailViewController.m in Sources */,
+				2C42E85E16F207C400C15CED /* OTLAddNoteViewController.m in Sources */,
+				2C42E86116F2084900C15CED /* OTLObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
